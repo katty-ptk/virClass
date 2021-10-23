@@ -4,11 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>virClass 🔥</title>
 </head>
 <body>
     
+    <div class="main">
+        <h1>virClass 🔥</h1>
+        <span id="line"></span>
+
+        <div class="options">
+            <!-- <h3>What would you like to do?</h3> -->
+            <div id="customSelect" class="custom-select">
+                <select name="options" id="options">
+                    <option value="" disabled selected>What would you like to do?</option>
+                    <option value="add">Add a new student</option>
+                    <option value="see">See all students</option>
+                </select>
+                <span class="custom-arrow"></span>
+            </div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
