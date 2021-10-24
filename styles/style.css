@@ -26,7 +26,7 @@ body {
   font-style: italic;
   font-family: "Scheherazade New", serif;
 }
-.main #line {
+.main .line {
   position: absolute;
   width: 100%;
   height: 3px;
@@ -92,7 +92,7 @@ body {
   border-top: 0.7em solid rgba(255, 253, 253, 0.75);
 }
 
-.students {
+.students, .teachers {
   display: block;
   position: absolute;
   top: 50%;
@@ -104,7 +104,7 @@ body {
   border: 2px solid #FDEFEF;
   border-radius: 20px;
 }
-.students h1 {
+.students h1, .teachers h1 {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -114,7 +114,7 @@ body {
   font-family: "Scheherazade New", serif;
   font-size: 1.25em;
 }
-.students #line2 {
+.students .line2, .teachers .line2 {
   position: absolute;
   width: 100%;
   height: 3px;
@@ -124,7 +124,7 @@ body {
   border-radius: 20px;
   opacity: 0.3;
 }
-.students section {
+.students section, .teachers section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -137,26 +137,26 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
-.students section .one-student {
+.students section .one-student, .students section .one-teacher, .teachers section .one-student, .teachers section .one-teacher {
   margin: 15px;
 }
-.students section .one-student h3, .students section .one-student p {
+.students section .one-student h3, .students section .one-student p, .students section .one-teacher h3, .students section .one-teacher p, .teachers section .one-student h3, .teachers section .one-student p, .teachers section .one-teacher h3, .teachers section .one-teacher p {
   color: #f4f4f4;
   text-align: center;
   margin: 10px;
   font-weight: bold;
 }
-.students section .one-student img {
+.students section .one-student img, .students section .one-teacher img, .teachers section .one-student img, .teachers section .one-teacher img {
   width: 100px;
   border-radius: 100%;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
 }
-.students section .one-student:first-child {
+.students section .one-student:first-child, .students section .one-teacher:first-child, .teachers section .one-student:first-child, .teachers section .one-teacher:first-child {
   margin-top: 230px;
 }
-.students section .one-student::after {
+.students section .one-student::after, .students section .one-teacher::after, .teachers section .one-student::after, .teachers section .one-teacher::after {
   content: "";
   position: absolute;
   height: 3px;
@@ -167,6 +167,6 @@ body {
   opacity: 0.25;
   border-radius: 20px;
 }
-.students section .one-student:last-child::after {
+.students section .one-student:last-child::after, .students section .one-teacher:last-child::after, .teachers section .one-student:last-child::after, .teachers section .one-teacher:last-child::after {
   display: none;
 }/*# sourceMappingURL=style.css.map */

@@ -8,10 +8,18 @@ select.addEventListener('input', handleSelect);
 function handleSelect( ev ) {
     let val = ev.target;
     
-    if ( val.value == "add" ) {
-        addStudent();
-    } else {
-        seeStudents();
+    switch ( val.value ) {
+        case "add":
+            addStudent();
+            break;
+        
+        case "seeStudents":
+            seeStudents();
+            break;
+
+        case "seeTeachers":
+            seeTeachers();
+            break;
     }
 }
 
@@ -41,20 +49,22 @@ const student_3 = {
     description: 'I am Vicze & I am 25 years old.'
 };
 
+let seeing_h1;
+let line_2;
 function seeStudents() {
     const studentsDiv = document.createElement('div');
     document.getElementsByTagName('body')[0].appendChild(studentsDiv);
     studentsDiv.setAttribute('class', 'students');
     document.getElementsByClassName('main')[0].style.display = "none";
 
-    const seeing_h1 = document.createElement('h1');
+    seeing_h1 = document.createElement('h1');
     seeing_h1.innerHTML = `
         <h1>These are the students in this class</h1>
     `;
     studentsDiv.appendChild(seeing_h1);
 
-    const line_2 = document.createElement('span');
-    line_2.setAttribute('id', 'line2');
+    line_2 = document.createElement('span');
+    line_2.setAttribute('class', 'line2');
     studentsDiv.appendChild(line_2);
 
     const students = document.createElement('section');
@@ -121,4 +131,47 @@ function seeStudents() {
 
 
     studentsDiv.appendChild(students);
+}
+
+function seeTeachers() {
+    const teachersDiv = document.createElement('div');
+    document.getElementsByTagName('body')[0].appendChild(teachersDiv);
+    teachersDiv.setAttribute('class', 'teachers');
+    document.getElementsByClassName('main')[0].style.display = "none";
+
+    seeing_h1 = document.createElement('h1');
+    seeing_h1.innerHTML = `
+        <h1>These are the teachers for this class</h1>
+    `;
+    teachersDiv.appendChild(seeing_h1);
+
+    line_2 = document.createElement('span');
+    line_2.setAttribute('class', 'line2');
+    teachersDiv.appendChild(line_2);
+
+    const teachers = document.createElement('section');
+
+    group.allTeachers.forEach(professor => {
+        const new_teacher_div = document.createElement('div');
+        new_teacher_div.setAttribute('class', 'one-teacher');
+        const new_teacher_name = document.createElement('h3');
+        const new_teacher_age = document.createElement('p');
+        const new_teacher_des = document.createElement('p');
+        const new_teacher_image = document.createElement('img');
+
+        new_teacher_image.src = professor.image;
+        new_teacher_div.appendChild(new_teacher_image);
+
+        new_teacher_name.textContent = professor.name;
+        new_teacher_div.appendChild(new_teacher_name);
+
+        new_teacher_age.textContent = professor.age;
+        new_teacher_div.appendChild(new_teacher_age);
+        
+        new_teacher_des.textContent = professor.description;
+        new_teacher_div.appendChild(new_teacher_des);
+
+        teachers.appendChild(new_teacher_div);
+        teachersDiv.appendChild(teachers);
+    });
 }
