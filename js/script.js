@@ -24,9 +24,53 @@ function handleSelect( ev ) {
 }
 
 function addStudent() {
-    console.log('adding student...');
+    
+    const add_form = document.createElement('form');
+    add_form.innerHTML = `
+        <form class="addForm">
+            <input id="name" class="inputs" type="text" autocomplete="off" placeholder="Enter here the student's full name."></input>
+            <input id="age" type="number" autocomplete="off" placeholder="Enter here the student's age."></input>
+            <input id="email" type="email" autocomplete="off" placeholder="Enter here the student's email."></input>
+        </form>
+    `;
+    add_form.setAttribute('id', 'addForm');
+    select.style.display = "none";
+    $(".custom-arrow").css("display", "none");
+
+    const add_btn = document.createElement('button');
+    add_btn.innerHTML = `
+        Add Student
+    `;
+    add_btn.setAttribute('id', 'addBtn');
+
+
+    const add_div = document.createElement('div');
+    add_div.setAttribute('id', 'addDiv');
+    add_div.appendChild(add_form);
+    add_div.appendChild(add_btn);
+
+    document.getElementsByClassName('main')[0].appendChild(add_div);
+
+    add_btn.addEventListener('click', addNewStudent);
 }
 
+function addNewStudent() {
+    
+    const name = document.getElementById('name').value;
+    const age = document.getElementById('age').value;
+    const email = document.getElementById('email').value;
+
+    students_group.newStudent( 
+        name, 
+        age, 
+        email
+      );      
+
+    $('#addForm').children('input').val('');
+    // console.log(`${name} has been added. They are ${age} & their email is ${email}`);
+    console.log(students_group);
+    
+}
 
 let seeing_h1;
 let line_2;
@@ -54,10 +98,10 @@ function seeStudents() {
         const new_student_name = document.createElement('h3');
         const new_student_age = document.createElement('p');
         const new_student_des = document.createElement('p');
-        const new_student_image = document.createElement('img');
+        // const new_student_image = document.createElement('img');
 
-        new_student_image.src = classmate.image;
-        new_student_div.appendChild(new_student_image);
+        // new_student_image.src = classmate.image;
+        // new_student_div.appendChild(new_student_image);
 
         new_student_name.textContent = classmate.name;
         new_student_div.appendChild(new_student_name);
