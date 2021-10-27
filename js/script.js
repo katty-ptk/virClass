@@ -1,8 +1,11 @@
 // grabbing html elements
 const select = document.getElementById('customSelect');
+const close_btn = document.getElementById('close');
 
 // event listeners
 select.addEventListener('input', handleSelect);
+
+// document.getElementsByClassName('main')[0].appendChild(close_btn);
 
 // functions
 function handleSelect( ev ) {
@@ -51,6 +54,15 @@ function addStudent() {
 
     document.getElementsByClassName('main')[0].appendChild(add_div);
 
+    document.getElementsByClassName('main')[0].appendChild(close_btn);
+    close_btn.addEventListener('click', function() {
+        add_div.style.display = "none";
+        select.style.display = "block";
+        $('.custom-arrow').css('display', 'block');
+        close_btn.classList.add('displayNone');
+    });
+    close_btn.classList.remove('displayNone');
+
     add_btn.addEventListener('click', addNewStudent);
 }
 
@@ -69,7 +81,7 @@ function addNewStudent() {
     $('#addForm').children('input').val('');
     // console.log(`${name} has been added. They are ${age} & their email is ${email}`);
     console.log(students_group);
-    
+
 }
 
 let seeing_h1;
@@ -77,6 +89,14 @@ let line_2;
 function seeStudents() {
     const studentsDiv = document.createElement('div');
     document.getElementsByTagName('body')[0].appendChild(studentsDiv);
+    
+    studentsDiv.appendChild(close_btn);
+    close_btn.addEventListener('click', function() {
+        studentsDiv.style.display = "none";
+        document.getElementsByClassName('main')[0].style.display = "block";
+    });
+    close_btn.classList.remove('displayNone');
+
     studentsDiv.setAttribute('class', 'students');
     document.getElementsByClassName('main')[0].style.display = "none";
 
@@ -120,6 +140,14 @@ function seeStudents() {
 function seeTeachers() {
     const teachersDiv = document.createElement('div');
     document.getElementsByTagName('body')[0].appendChild(teachersDiv);
+
+    teachersDiv.appendChild(close_btn);
+    close_btn.addEventListener('click', function() {
+        teachersDiv.style.display = "none";
+        document.getElementsByClassName('main')[0].style.display = "block";
+    });
+    close_btn.classList.remove('displayNone');
+
     teachersDiv.setAttribute('class', 'teachers');
     document.getElementsByClassName('main')[0].style.display = "none";
 
@@ -158,4 +186,8 @@ function seeTeachers() {
         teachers.appendChild(new_teacher_div);
         teachersDiv.appendChild(teachers);
     });
+}
+
+function getBack( divToHide ) {
+    divToHide.style.display = "none";
 }

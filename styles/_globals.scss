@@ -7,3 +7,30 @@
 body {
     background: #111;
 }
+
+#close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    width: 30px;
+    height: 30px;
+
+    background: transparent;
+    border: none;
+    border-radius: 20px;
+    color: #f4f4f4;
+    font-weight: bold;
+    font-size: 1.3em;
+    cursor: pointer;
+
+    transition: all 300ms ease-in-out;
+
+    &:hover {
+        background: #f4f4f4;
+        color: #111;
+    }
+}
+
+.displayNone {
+    display: none;
+}
