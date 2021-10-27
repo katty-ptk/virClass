@@ -8,6 +8,30 @@ body {
   background: #111;
 }
 
+#close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  border-radius: 20px;
+  color: #f4f4f4;
+  font-weight: bold;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+#close:hover {
+  background: #f4f4f4;
+  color: #111;
+}
+
+.displayNone {
+  display: none;
+}
+
 .main {
   position: absolute;
   top: 50%;
@@ -113,6 +137,7 @@ body {
   font-style: italic;
   font-family: "Scheherazade New", serif;
   font-size: 1.25em;
+  pointer-events: none;
 }
 .students .line2, .teachers .line2 {
   position: absolute;
