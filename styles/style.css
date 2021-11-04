@@ -171,6 +171,13 @@ body {
   margin: 10px;
   font-weight: bold;
 }
+.students section .one-student img, .students section .one-teacher img, .teachers section .one-student img, .teachers section .one-teacher img {
+  width: 150px;
+  border-radius: 35px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .students section .one-student:first-child, .students section .one-teacher:first-child, .teachers section .one-student:first-child, .teachers section .one-teacher:first-child {
   margin-top: 230px;
 }

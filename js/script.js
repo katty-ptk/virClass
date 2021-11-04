@@ -46,7 +46,6 @@ function addStudent() {
     `;
     add_btn.setAttribute('id', 'addBtn');
 
-
     const add_div = document.createElement('div');
     add_div.setAttribute('id', 'addDiv');
     add_div.appendChild(add_form);
@@ -60,6 +59,8 @@ function addStudent() {
         select.style.display = "block";
         $('.custom-arrow').css('display', 'block');
         close_btn.classList.add('displayNone');
+        // $('#addForm').children('input').val('');
+        // document.getElementById('addForm').reset();
     });
     close_btn.classList.remove('displayNone');
 
@@ -71,16 +72,16 @@ function addNewStudent() {
     const name = document.getElementById('name').value;
     const age = document.getElementById('age').value;
     const email = document.getElementById('email').value;
-
+    
     students_group.newStudent( 
         name, 
         age, 
         email
-      );      
-
-    $('#addForm').children('input').val('');
-    // console.log(`${name} has been added. They are ${age} & their email is ${email}`);
+    );      
+        
     console.log(students_group);
+    console.log(`${name} has been added. They are ${age} & their email is ${email}`);
+    document.getElementById('addForm').reset();
 
 }
 
@@ -117,11 +118,11 @@ function seeStudents() {
         new_student_div.setAttribute('class', 'one-student');
         const new_student_name = document.createElement('h3');
         const new_student_age = document.createElement('p');
-        const new_student_des = document.createElement('p');
-        // const new_student_image = document.createElement('img');
+        const new_student_email = document.createElement('p');
+        const new_student_image = document.createElement('img');
 
-        // new_student_image.src = classmate.image;
-        // new_student_div.appendChild(new_student_image);
+        new_student_image.src = "../image.JPG";
+        new_student_div.appendChild(new_student_image);
 
         new_student_name.textContent = classmate.name;
         new_student_div.appendChild(new_student_name);
@@ -129,8 +130,8 @@ function seeStudents() {
         new_student_age.textContent = classmate.age;
         new_student_div.appendChild(new_student_age);
         
-        new_student_des.textContent = classmate.description;
-        new_student_div.appendChild(new_student_des);
+        new_student_email.textContent = classmate.email;
+        new_student_div.appendChild(new_student_email);
 
         students.appendChild(new_student_div);
         studentsDiv.appendChild(students);

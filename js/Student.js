@@ -4,7 +4,6 @@
         this.name = name;
         this.age = age;
         this.email = email;
-        this.description = `I am ${name}, ${age}, and my email is ${email}.`;
     }
 }
 
@@ -32,9 +31,9 @@ class Students {
 
 let students_group = new Students();
 students_group.newStudent( 
-  "Katty Ptk", 
-  16, 
-  "katty.lazar05@gmail.com"
+  "Ecaterina Patkany", 
+  17, 
+  "ecaterina.patkany@lmvineu.ro"
 );
 
 students_group.newStudent( 
